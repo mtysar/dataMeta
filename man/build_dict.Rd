@@ -4,8 +4,14 @@
 \alias{build_dict}
 \title{Build a data dictionary for a dataset.}
 \usage{
-build_dict(my.data, linker, option_description = NULL,
-  prompt_varopts = TRUE, na.rm = FALSE)
+build_dict(
+  my.data,
+  linker,
+  option_description = NULL,
+  prompt_varopts = TRUE,
+  hide_sensitive = FALSE,
+  na.rm = FALSE
+)
 }
 \arguments{
 \item{my.data}{Data.frame. The data set for which the user is creating the 
@@ -23,6 +29,10 @@ this value must be NULL.}
 \item{prompt_varopts}{Logical. Whether to add the option_description manually 
 as prompted by R. Default is set to TRUE. If FALSE, an option_description vector 
 must be provided.}
+
+\item{hide_sensitive}{Logical. Whether to hide information about contents of a 
+variables marked as sensitive in the \code{var_sens} field in \code{linker}. Default
+is set to FALSE.}
 
 \item{na.rm}{Logical. Whether to remove \code{NA} when determining the range 
 for variables with \code{variable_type == 0} in \code{linker}}

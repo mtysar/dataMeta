@@ -4,7 +4,12 @@
 \alias{build_linker}
 \title{Build a linker data frame.}
 \usage{
-build_linker(my.data, variable_description, variable_type)
+build_linker(
+  my.data,
+  variable_description,
+  variable_type,
+  variable_sensitive = NULL
+)
 }
 \arguments{
 \item{my.data}{Data.frame. The data set for which the user is creating the 
@@ -17,6 +22,10 @@ need to be in the same order as the original dataset's variable names.}
 \item{variable_type}{A vector of integers with values 0 or 1, only. Use 0 for
 variable names for which a range of values will be presented and 1 to show unique 
 cases of each variable name option. See examples, below.}
+
+\item{variable_sensitive}{An optional vector of integers with values 0 or 1, 
+only. Use 0 for variables that contain sensitive information (e.g., personal 
+health information).}
 }
 \value{
 If the original dataset supplied as my.data is of class data.frame; 

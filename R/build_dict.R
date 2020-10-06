@@ -16,6 +16,9 @@
 #' @param prompt_varopts Logical. Whether to add the option_description manually 
 #' as prompted by R. Default is set to TRUE. If FALSE, an option_description vector 
 #' must be provided.
+#' @param hide_sensitive Logical. Whether to hide information about contents of a 
+#' variables marked as sensitive in the \code{var_sens} field in \code{linker}. Default
+#' is set to FALSE.
 #' @param na.rm Logical. Whether to remove \code{NA} when determining the range 
 #' for variables with \code{variable_type == 0} in \code{linker}
 #' @return A data frame that will serve as a data dictionary for an original dataset. 
@@ -45,7 +48,7 @@
 #' @export
 
 build_dict <- function(my.data, linker, option_description = NULL, prompt_varopts = TRUE,
-                       na.rm = FALSE) {
+                       hide_sensitive = FALSE, na.rm = FALSE) {
   
   error1 <- FALSE
   error2 <- FALSE
@@ -58,10 +61,14 @@ build_dict <- function(my.data, linker, option_description = NULL, prompt_varopt
   
   for(i in 1:length(names(my.data))) {
     
-    var.options = 
-      ifelse(linker$var_type[i] == 1 & linker$var_name[i] == names(my.data[i]), 
-             unique(my.data[i]), paste(range(my.data[, i], na.rm = na.rm), 
-                                       sep = "", collapse = " to "))
+    if (hide_sensitive == TRUE & linker$var_sens[i] == 1) {
+      var.options = "hidden"
+    } else {
+      var.options = 
+        ifelse(linker$var_type[i] == 1 & linker$var_name[i] == names(my.data[i]), 
+               unique(my.data[i]), paste(range(my.data[, i], na.rm = na.rm), 
+                                         sep = "", collapse = " to "))
+    }
     
     d <- data.frame(
           variable_name = names(my.data[i]),

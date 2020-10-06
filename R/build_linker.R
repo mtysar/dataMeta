@@ -12,6 +12,9 @@
 #' @param variable_type A vector of integers with values 0 or 1, only. Use 0 for
 #' variable names for which a range of values will be presented and 1 to show unique 
 #' cases of each variable name option. See examples, below.
+#' @param variable_sensitive An optional vector of integers with values 0 or 1, 
+#' only. Use 0 for variables that contain sensitive information (e.g., personal 
+#' health information).
 #' @return If the original dataset supplied as my.data is of class data.frame; 
 #' the variable description items are in the same order as the orignal dataset's 
 #' variable names; and the variable_type intgeer vector values are 0 or 1, then 
@@ -44,20 +47,29 @@
 #' 
 #' @export
 
-build_linker <- function(my.data, variable_description, variable_type) { 
+build_linker <- function(my.data, variable_description, variable_type, variable_sensitive = NULL) { 
   
-  error <- FALSE
+  error1 <- FALSE
+  error2 <- FALSE
+  
+  if (is.null(variable_sensitive)) { variable_sensitive <- 0 }
   
   df <- data.frame(
             var_name = names(my.data),
             var_desc = variable_description,
-            var_type = ifelse(!variable_type %in% c(0, 1), error <- TRUE,
+            var_type = ifelse(!variable_type %in% c(0, 1), error1 <- TRUE,
                           as.integer(variable_type)),
+            var_sens = ifelse(!variable_sensitive %in% c(0, 1), error2 <- TRUE, 
+                          as.integer(variable_sensitive)),
             stringsAsFactors = FALSE)
   
-  if(error) {
+  if(error1) {
     print("Error in variable_type. Values must be either 0 or 1 (integer values only).")
     
+    } else if (error2) {
+      
+    print("Error in variable_sensitive. Values must be either 0 or 1 (integer values only).")
+      
     } else {
       
       df
