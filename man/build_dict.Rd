@@ -18,7 +18,7 @@ build_dict(
 dictionary for.}
 
 \item{linker}{Data.frame. A data frame that has the variable names from the 
-original dataset, and also a avriable type that will tell the dictionary whether 
+original dataset, and also a available type that will tell the dictionary whether 
 to list unique item options or a range of values for each variable name.}
 
 \item{option_description}{A vector that has the description of each variable 

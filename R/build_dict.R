@@ -7,7 +7,7 @@
 #' @param my.data Data.frame. The data set for which the user is creating the 
 #' dictionary for.
 #' @param linker Data.frame. A data frame that has the variable names from the 
-#' original dataset, and also a avriable type that will tell the dictionary whether 
+#' original dataset, and also a available type that will tell the dictionary whether 
 #' to list unique item options or a range of values for each variable name.
 #' @param option_description A vector that has the description of each variable 
 #' option in the order in which these appear and depending on how the variable type 

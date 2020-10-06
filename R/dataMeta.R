@@ -12,7 +12,7 @@
 #' prompt_attr This function will prompt the user for options related to the metadata that will be added to the R dataset. This is an alternative to the incorporate_attr function.
 #' save_it This function will save your new data with its attributes as an R dataset.
 #' add_data_dictionary This function wraps the dataMeta workflow for simple dictionaries (no variable options) into a single function
-#' 
+#' print_data_dictionary This function prints the data dictionary attached to a data frame as a nicely formatted \code{gt} table
 #'
 #' @docType package
 #' @name dataMeta
