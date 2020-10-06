@@ -3,7 +3,6 @@
 \docType{package}
 \name{dataMeta}
 \alias{dataMeta}
-\alias{dataMeta-package}
 \title{dataMeta: Create and Append a Data Dictionary for an R Dataset}
 \description{
 The dataMeta package provides three main functions:

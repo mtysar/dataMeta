@@ -4,7 +4,8 @@
 \name{my.data}
 \alias{my.data}
 \title{my.data}
-\format{A data frame of 32 observations and 9 variables.
+\format{
+A data frame of 32 observations and 9 variables.
 \describe{
   \item{report_date}{Date when report was published by USVI Department of Health, YYYY-mm-dd}
   \item{location}{Regional location by name}
@@ -13,9 +14,10 @@
   \item{data_field_code}{A code to identify the data_field}
   \item{time_period}{The time period of the cases}
   \item{time_period_type}{The units of the time period}
-  \item{value}{The number of observations under a specificc data_field}
+  \item{value}{The number of observations under a specific data_field}
   \item{unit}{The unit of the number of observations, cases, municipalities...}
-  }}
+  }
+}
 \source{
 \url{https://github.com/cdcepi/zika/blob/master/USVI/USVI_Zika/data/USVI_Zika-2017-01-03.csv}
 }
