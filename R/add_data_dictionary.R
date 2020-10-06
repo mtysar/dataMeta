@@ -74,6 +74,6 @@ add_data_dictionary <- function(
   incorporate_attr(
     data,
     data.dictionary = dict,
-    main_string = main
+    main_string = main_string
   )
 }
